@@ -379,9 +379,9 @@ class LayerController extends Controller {
 
 		try {
 			$_rolelayer = $this->getlevel($layer->id_layer);
+			$usermodul = DB::table('role_layer')->where('layer_id',$layer->id_layer)->delete();
 			foreach ($_rolelayer as $key => $value) {
 				$detil = new RoleLayer();
-				$usermodul = DB::table('role_layer')->where('layer_id',$layer->id_layer)->delete();
 				$detil->role_id = $value['role_id'];
 				$detil->layer_id = $value['layer_id'];
 				$detil->save();
