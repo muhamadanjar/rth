@@ -545,4 +545,11 @@ class LayerController extends Controller {
 		return $a;
 	}
 
+	public function LayerEsriHapus($id){
+		$layer = Layer::find($id);
+		$layer->jsonfield = null;
+		$layer->save();
+		return redirect('layer');
+	}
+
 }

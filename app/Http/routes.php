@@ -43,7 +43,8 @@ Route::post('layer-new-layer', 'LayerController@create');
 Route::get('layer/edit/{id}', 'LayerController@editExistingLayer');
 Route::post('layer/edit/{id}', 'LayerController@edit');
 
-Route::get('layer/delete/{id}', 'LayerController@delete');
+Route::get('layer/delete/{id}', ['as'=>'layerdelete','uses'=>'LayerController@delete']);
+Route::get('layer-esrihapus-{id}', ['as' => 'layeresrihapus', 'uses' => 'LayerController@LayerEsriHapus']);
 
 Route::get('layer/create-new-post/success','LayerController@createSuccess');
 Route::get('layer/manage-existing-layer/delete/{id}/success','LayerController@deleteSuccess');
@@ -82,6 +83,7 @@ Route::get('user/create-new-user/success','UserController@createSuccess');
 Route::get('user/manage-existing-user/edit/{id}/success','UserController@editSuccess');
 Route::get('user/manage-existing-user/delete/{id}/success','UserController@deleteSuccess');
 
+Route::get('user-nonaktif-{id}', ['as' => 'usernonaktif','uses'=>'UserController@NAUser']);
 
 /* Setting Web */
 Route::get('setting-ganti-host', 'SettingController@gantihost');

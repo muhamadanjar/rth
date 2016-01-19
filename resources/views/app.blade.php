@@ -109,7 +109,7 @@ date_default_timezone_set('Asia/Jakarta');
         @endif
 
    		
-   			
+   			@include('helper/delete_confirm')
       <!-- End aside-->
       <!-- START aside-->
     

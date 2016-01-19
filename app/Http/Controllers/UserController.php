@@ -87,4 +87,13 @@ class UserController extends Controller {
 		return view('page.useradminadd')->with('title', $title)->with('admin', $admin);
 	}
 
+	public function NAUser($id){
+		$user = User::find($id);
+
+		$status = ($user->na == 'N') ? 'Y' : 'N' ;
+		$user->na = $status;
+		$user->save();
+		return redirect('user')->with('message',\AHelper::format_message('User Berhasil diubah','success'));
+	}
+
 }

@@ -27,7 +27,20 @@
                       
                         @foreach ($bookmarks as $key => $value)
                         <tr>
-                            <td><a href="bookmark/edit/{!! $value->id !!}">Edit</a> || <a href="bookmark/delete/{!! $value->id !!}">Hapus</a></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+                                    <i class="fa fa-cog"></i>
+                                    <span class="caret"></span>
+                                    </button>
+                                    <ul role="menu" class="dropdown-menu">
+                                        <li><a href="bookmark/edit/{!! $value->id !!}"><i class="fa fa-pencil-square-o"></i> Edit</a></li>
+                                        <li><a href="bookmark/delete/{!! $value->id !!}"><i class="fa fa-trash-o"></i> Hapus</a></li>
+                                        <li class="divider"></li>
+                                      
+                                    </ul>
+                                </div>
+                            </td>
                             <td> {{ $value->name }}</td>
                             <td>{{ $value->wkid }}</td>
                             <td></td>
