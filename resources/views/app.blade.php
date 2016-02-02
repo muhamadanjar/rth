@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Jakarta');
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<meta name="_token" content="{!! csrf_token() !!}"/>
 	<title>Tata Ruang Kabupaten Bogor</title>
-    <link rel="icon" href="images/kotabogor.png" />
+    <link rel="icon" href="{{ asset('images/kotabogor.png') }}" />
 	<!-- Bootstrap CSS-->
   {!! Html::style('vendor/bootstrap/css/bootstrap.min.css') !!}
   <!-- Vendor CSS-->
