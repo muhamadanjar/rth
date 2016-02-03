@@ -89,6 +89,9 @@ Route::get('user-nonaktif-{id}', ['as' => 'usernonaktif','uses'=>'UserController
 Route::get('setting-ganti-host', 'SettingController@gantihost');
 Route::post('setting-ganti-host', 'SettingController@gantihostPost');
 
+Route::get('settingurl','SettingWeb@SettingWebURLForm');
+Route::post('settingurl','SettingWeb@SettingWebURLPost');
+
 /* RTH */
 
 Route::get('rth-informasi','RTHCtrl@RTHInformasi');
