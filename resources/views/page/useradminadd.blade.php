@@ -18,38 +18,44 @@
                     @endif
                     {!! Form::open(['class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group">
-                            {!! Form::label('name', 'Nama Lengkap', ['class' => 'col-md-1 control-label']) !!}
-                            <div class="col-md-11">
+                            {!! Form::label('name', 'Nama Lengkap', ['class' => 'col-md-2 control-label-kiri']) !!}
+                            <div class="col-md-10">
                                 {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => "Nama Lengkap"]) !!}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="col-md-1 control-label">Email</label>
-                            <div class="col-md-11">
+                            <label for="email" class="col-md-2 control-label-kiri">Email</label>
+                            <div class="col-md-10">
                                  {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => "Email"]) !!}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="username" class="col-md-1 control-label">Username</label>
-                            <div class="col-md-11">
+                            <label for="username" class="col-md-2 control-label-kiri">Username</label>
+                            <div class="col-md-10">
                                  {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => "Username"]) !!}
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="leveluser" class="col-md-2 control-label-kiri">Level User</label>
+                            <div class="col-md-10">
+                                 {!! \AHelper::RoleSelect() !!}
+                            </div>
+                        </div>
                         <!--<div class="form-group">
-                            <label for="leveluser" class="col-md-1 control-label">Level User</label>
-                            <div class="col-md-11">
+                            <label for="leveluser" class="col-md-1 control-label-kiri">Level User</label>
+                            <div class="col-md-10">
                                  {!! Form::checkbox('leveluser[]', '1', ['class' => 'form-control', 'placeholder' => "Your post's title here"]) !!} Admin
                                  {!! Form::checkbox('leveluser[]', '2', ['class' => 'form-control', 'placeholder' => "Your post's title here"]) !!} User
                             </div>
                         </div>-->
                         <div class="form-group">
-                            <label for="password" class="col-md-1 control-label">Password</label>
-                            <div class="col-md-11">
+                            <label for="password" class="col-md-2 control-label-kiri">Password</label>
+                            <div class="col-md-10">
                                  <input type="password" name="password" class="form-control" placeholder="Password" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-11 col-md-offset-1">
+                            <div class="col-md-10 col-md-offset-1">
                                 <button type="reset" class="btn btn-default">Reset</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>

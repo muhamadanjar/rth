@@ -7,7 +7,7 @@ use App\LevelUser;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\EditUserRequest;
 //use Illuminate\Http\Request;
-
+use DB;
 class UserController extends Controller {
 
 	
@@ -27,6 +27,15 @@ class UserController extends Controller {
 		$user->password = bcrypt($request->password);
 		$user->leveluser = implode(",", (array)$request->leveluser);
 		$user->save();
+
+		try {
+			DB::table('role_user')->insert(
+				['role_id' => $request->role, 'user_id' => $user->id]
+			);
+		} catch (Exception $e) {
+			DB::rollback();
+		    throw $e;
+		}
 
 		return redirect('user');
 	}
@@ -56,6 +65,24 @@ class UserController extends Controller {
 
 		$user->save();
 		$user->touch();
+
+		try {
+			$roleuser= DB::table('role_user')->where('user_id', $user->id);
+			if ($roleuser->count() > 0) {
+				$roleuser->update(
+					['role_id' => $request->role, 'user_id' => $user->id]
+				);
+			}else{
+				DB::table('role_user')->insert(
+					['role_id' => $request->role, 'user_id' => $user->id]
+				);
+			}
+			
+		} catch (Exception $e) {
+			DB::rollback();
+		    throw $e;
+		}
+		
 
 		return redirect('user');
 	}

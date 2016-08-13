@@ -130,7 +130,7 @@
                   <!-- START SubMenu item-->
                   <ul class="nav collapse ">
                      <li>
-                        <a href="user" title="List User" data-toggle="" class="no-submenu">
+                        <a href="{{ url('user') }}" title="List User" data-toggle="" class="no-submenu">
                            <span class="item-text">List</span>
                         </a>
                      </li>
